@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "B8D65E7724D6393E00125306"
-               BuildableName = "Simple Timer.app"
-               BlueprintName = "Simple Timer"
-               ReferencedContainer = "container:Simple Timer.xcodeproj">
+               BuildableName = "SimpleTimer.app"
+               BlueprintName = "SimpleTimer"
+               ReferencedContainer = "container:SimpleTimer.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "B8D65E9424D6F55500125306"
-               BuildableName = "Simple TimerTests.xctest"
-               BlueprintName = "Simple TimerTests"
-               ReferencedContainer = "container:Simple Timer.xcodeproj">
+               BuildableName = "SimpleTimerTests.xctest"
+               BlueprintName = "SimpleTimerTests"
+               ReferencedContainer = "container:SimpleTimer.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B8D65E7724D6393E00125306"
-            BuildableName = "Simple Timer.app"
-            BlueprintName = "Simple Timer"
-            ReferencedContainer = "container:Simple Timer.xcodeproj">
+            BuildableName = "SimpleTimer.app"
+            BlueprintName = "SimpleTimer"
+            ReferencedContainer = "container:SimpleTimer.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B8D65E7724D6393E00125306"
-            BuildableName = "Simple Timer.app"
-            BlueprintName = "Simple Timer"
-            ReferencedContainer = "container:Simple Timer.xcodeproj">
+            BuildableName = "SimpleTimer.app"
+            BlueprintName = "SimpleTimer"
+            ReferencedContainer = "container:SimpleTimer.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

@@ -34,7 +34,7 @@
 		B8860AAA24E588AB0016986B /* CountDown.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = CountDown.mp3; sourceTree = "<group>"; };
 		B8860AAD24E813F10016986B /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		B8860AAF24E81A320016986B /* Sounds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sounds.swift; sourceTree = "<group>"; };
-		B8D65E7824D6393E00125306 /* Simple Timer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Simple Timer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B8D65E7824D6393E00125306 /* SimpleTimer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleTimer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8D65E7B24D6393E00125306 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B8D65E7D24D6393E00125306 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		B8D65E7F24D6393E00125306 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -43,7 +43,7 @@
 		B8D65E8724D6394100125306 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B8D65E8924D6394100125306 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B8D65E8F24D65CBF00125306 /* IntervalTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntervalTimer.swift; sourceTree = "<group>"; };
-		B8D65E9524D6F55500125306 /* Simple TimerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Simple TimerTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B8D65E9524D6F55500125306 /* SimpleTimerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SimpleTimerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8D65E9724D6F55500125306 /* Simple_TimerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Simple_TimerTests.swift; sourceTree = "<group>"; };
 		B8D65E9924D6F55500125306 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -78,8 +78,8 @@
 		B8D65E6F24D6393E00125306 = {
 			isa = PBXGroup;
 			children = (
-				B8D65E7A24D6393E00125306 /* Simple Timer */,
-				B8D65E9624D6F55500125306 /* Simple TimerTests */,
+				B8D65E7A24D6393E00125306 /* SimpleTimer */,
+				B8D65E9624D6F55500125306 /* SimpleTimerTests */,
 				B8D65E7924D6393E00125306 /* Products */,
 				B8860AAC24E813F00016986B /* Frameworks */,
 			);
@@ -88,13 +88,13 @@
 		B8D65E7924D6393E00125306 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B8D65E7824D6393E00125306 /* Simple Timer.app */,
-				B8D65E9524D6F55500125306 /* Simple TimerTests.xctest */,
+				B8D65E7824D6393E00125306 /* SimpleTimer.app */,
+				B8D65E9524D6F55500125306 /* SimpleTimerTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		B8D65E7A24D6393E00125306 /* Simple Timer */ = {
+		B8D65E7A24D6393E00125306 /* SimpleTimer */ = {
 			isa = PBXGroup;
 			children = (
 				B8860AAA24E588AB0016986B /* CountDown.mp3 */,
@@ -108,7 +108,7 @@
 				B8D65E8F24D65CBF00125306 /* IntervalTimer.swift */,
 				B8860AAF24E81A320016986B /* Sounds.swift */,
 			);
-			path = "Simple Timer";
+			path = SimpleTimer;
 			sourceTree = "<group>";
 		};
 		B8D65E8324D6394100125306 /* Preview Content */ = {
@@ -119,21 +119,21 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		B8D65E9624D6F55500125306 /* Simple TimerTests */ = {
+		B8D65E9624D6F55500125306 /* SimpleTimerTests */ = {
 			isa = PBXGroup;
 			children = (
 				B8D65E9724D6F55500125306 /* Simple_TimerTests.swift */,
 				B8D65E9924D6F55500125306 /* Info.plist */,
 			);
-			path = "Simple TimerTests";
+			path = SimpleTimerTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		B8D65E7724D6393E00125306 /* Simple Timer */ = {
+		B8D65E7724D6393E00125306 /* SimpleTimer */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B8D65E8C24D6394100125306 /* Build configuration list for PBXNativeTarget "Simple Timer" */;
+			buildConfigurationList = B8D65E8C24D6394100125306 /* Build configuration list for PBXNativeTarget "SimpleTimer" */;
 			buildPhases = (
 				B8D65E7424D6393E00125306 /* Sources */,
 				B8D65E7524D6393E00125306 /* Frameworks */,
@@ -143,14 +143,14 @@
 			);
 			dependencies = (
 			);
-			name = "Simple Timer";
+			name = SimpleTimer;
 			productName = "Simple Timer";
-			productReference = B8D65E7824D6393E00125306 /* Simple Timer.app */;
+			productReference = B8D65E7824D6393E00125306 /* SimpleTimer.app */;
 			productType = "com.apple.product-type.application";
 		};
-		B8D65E9424D6F55500125306 /* Simple TimerTests */ = {
+		B8D65E9424D6F55500125306 /* SimpleTimerTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B8D65E9C24D6F55500125306 /* Build configuration list for PBXNativeTarget "Simple TimerTests" */;
+			buildConfigurationList = B8D65E9C24D6F55500125306 /* Build configuration list for PBXNativeTarget "SimpleTimerTests" */;
 			buildPhases = (
 				B8D65E9124D6F55500125306 /* Sources */,
 				B8D65E9224D6F55500125306 /* Frameworks */,
@@ -161,9 +161,9 @@
 			dependencies = (
 				B8D65E9B24D6F55500125306 /* PBXTargetDependency */,
 			);
-			name = "Simple TimerTests";
+			name = SimpleTimerTests;
 			productName = "Simple TimerTests";
-			productReference = B8D65E9524D6F55500125306 /* Simple TimerTests.xctest */;
+			productReference = B8D65E9524D6F55500125306 /* SimpleTimerTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -185,7 +185,7 @@
 					};
 				};
 			};
-			buildConfigurationList = B8D65E7324D6393E00125306 /* Build configuration list for PBXProject "Simple Timer" */;
+			buildConfigurationList = B8D65E7324D6393E00125306 /* Build configuration list for PBXProject "SimpleTimer" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -198,8 +198,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				B8D65E7724D6393E00125306 /* Simple Timer */,
-				B8D65E9424D6F55500125306 /* Simple TimerTests */,
+				B8D65E7724D6393E00125306 /* SimpleTimer */,
+				B8D65E9424D6F55500125306 /* SimpleTimerTests */,
 			);
 		};
 /* End PBXProject section */
@@ -251,7 +251,7 @@
 /* Begin PBXTargetDependency section */
 		B8D65E9B24D6F55500125306 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = B8D65E7724D6393E00125306 /* Simple Timer */;
+			target = B8D65E7724D6393E00125306 /* SimpleTimer */;
 			targetProxy = B8D65E9A24D6F55500125306 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -387,15 +387,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"Simple Timer/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"SimpleTimer/Preview Content\"";
 				DEVELOPMENT_TEAM = 79D2P98PU7;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = "Simple Timer/Info.plist";
+				INFOPLIST_FILE = SimpleTimer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.4BitShift.Simple-Timer";
+				PRODUCT_BUNDLE_IDENTIFIER = com.4BitShift.SimpleTimer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -407,15 +407,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"Simple Timer/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"SimpleTimer/Preview Content\"";
 				DEVELOPMENT_TEAM = 79D2P98PU7;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = "Simple Timer/Info.plist";
+				INFOPLIST_FILE = SimpleTimer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.4BitShift.Simple-Timer";
+				PRODUCT_BUNDLE_IDENTIFIER = com.4BitShift.SimpleTimer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -438,7 +438,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Simple Timer.app/Simple Timer";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SimpleTimer.app/SimpleTimer";
 			};
 			name = Debug;
 		};
@@ -458,14 +458,14 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Simple Timer.app/Simple Timer";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SimpleTimer.app/SimpleTimer";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		B8D65E7324D6393E00125306 /* Build configuration list for PBXProject "Simple Timer" */ = {
+		B8D65E7324D6393E00125306 /* Build configuration list for PBXProject "SimpleTimer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B8D65E8A24D6394100125306 /* Debug */,
@@ -474,7 +474,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B8D65E8C24D6394100125306 /* Build configuration list for PBXNativeTarget "Simple Timer" */ = {
+		B8D65E8C24D6394100125306 /* Build configuration list for PBXNativeTarget "SimpleTimer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B8D65E8D24D6394100125306 /* Debug */,
@@ -483,7 +483,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B8D65E9C24D6F55500125306 /* Build configuration list for PBXNativeTarget "Simple TimerTests" */ = {
+		B8D65E9C24D6F55500125306 /* Build configuration list for PBXNativeTarget "SimpleTimerTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B8D65E9D24D6F55500125306 /* Debug */,
