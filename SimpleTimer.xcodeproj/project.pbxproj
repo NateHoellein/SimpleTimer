@@ -34,7 +34,7 @@
 		B8860AAA24E588AB0016986B /* CountDown.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = CountDown.mp3; sourceTree = "<group>"; };
 		B8860AAD24E813F10016986B /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		B8860AAF24E81A320016986B /* Sounds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sounds.swift; sourceTree = "<group>"; };
-		B8D65E7824D6393E00125306 /* SimpleTimer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleTimer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B8D65E7824D6393E00125306 /* Simple Timer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Simple Timer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8D65E7B24D6393E00125306 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B8D65E7D24D6393E00125306 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		B8D65E7F24D6393E00125306 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -88,7 +88,7 @@
 		B8D65E7924D6393E00125306 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B8D65E7824D6393E00125306 /* SimpleTimer.app */,
+				B8D65E7824D6393E00125306 /* Simple Timer.app */,
 				B8D65E9524D6F55500125306 /* SimpleTimerTests.xctest */,
 			);
 			name = Products;
@@ -145,7 +145,7 @@
 			);
 			name = SimpleTimer;
 			productName = "Simple Timer";
-			productReference = B8D65E7824D6393E00125306 /* SimpleTimer.app */;
+			productReference = B8D65E7824D6393E00125306 /* Simple Timer.app */;
 			productType = "com.apple.product-type.application";
 		};
 		B8D65E9424D6F55500125306 /* SimpleTimerTests */ = {
@@ -396,7 +396,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.4BitShift.SimpleTimer;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Simple Timer";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -416,7 +416,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.4BitShift.SimpleTimer;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Simple Timer";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
