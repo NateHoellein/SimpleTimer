@@ -1,2 +1,5 @@
 # macOS folder info
 .DS_Store
+
+# XCode
+xcuserdata/

@@ -24,7 +24,7 @@ struct CountDownView: View {
                     .stroke(style: StrokeStyle(lineWidth: 19.0, lineCap: .round, lineJoin: .round))
                     .foregroundColor(Color.red)
                     .rotationEffect(Angle(degrees: 270.0))
-                    .animation(.linear)
+                    .animation(.easeInOut(duration: 1.0))
                 VStack {
                     Text("\(self.intervalTimer.displayTime)")
                         .font(.largeTitle)
@@ -38,19 +38,47 @@ struct CountDownView: View {
     }
 }
 
+struct IntervalPickerView: View {
+    @ObservedObject var intervalTimer: IntervalTimer
+
+    var body: some View {
+
+        VStack {
+            Text("\(intervalTimer.intervalTimeDisplay)").font(.title)
+            Stepper(value: $intervalTimer.intervalMinute,
+                in: 0 ... 10,
+                step: 1
+            ) {
+                Text("Minutes: \(intervalTimer.intervalMinute)").font(.title)
+            }.padding()
+            Stepper(value: $intervalTimer.intervalSeconds,
+                    in: 0 ... 60,
+                    step: 1
+            ) {
+                Text("Seconds: \(String(format: "%02d", intervalTimer.intervalSeconds))").font(.title)
+            }.padding()
+            Stepper(value: $intervalTimer.intervalSets,
+                in: 0 ... 50,
+                step: 1
+            ) {
+                Text("Intervals: \(intervalTimer.intervalSets)").font(.title)
+            }.padding()
+        }
+    }
+}
+
 struct ContentView: View {
     @ObservedObject var intervalTimer = IntervalTimer()
+    
     var body: some View {
         VStack{
-            CountDownView(intervalTimer: intervalTimer)
+            CountDownView(intervalTimer: self.intervalTimer)
+            IntervalPickerView(intervalTimer: self.intervalTimer)
             HStack {
                 Button(action: {
                     self.intervalTimer.stop()
                 }, label: {Image("stop")})
                     .buttonStyle(PlainButtonStyle())
-                    .padding()
-                Text("2:00")
-                    .font(.headline)
                     .padding()
                 Button(action: {
                     self.intervalTimer.start()
