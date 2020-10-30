@@ -78,27 +78,22 @@ class IntervalTimer: ObservableObject {
         
         DispatchQueue.main.async {
             
-            print(self.counter)
-            self.progress = CGFloat(Double(self.counter + 1) / Double(self.interval))
-            print(self.progress)
+            self.progress = CGFloat(Double(self.counter) / Double(self.interval))
             self.displayTime = IntervalTimer.display(self.counter)
 
             if ((self.interval - 5)...self.interval).contains(self.counter) {
-                print("Beep  counter: \(self.counter)")
                 AudioServicesPlayAlertSound(Sounds.countDown)
             }
               
             if self.counter == self.interval &&
                 self.currentSet == self.intervalSets {
                 // all done
-                print("All done")
                 self.setComplete = true
                 self.sourceTimer?.suspend()
                 return
             }
             
             if self.counter == self.interval {
-                print("Interval done")
                 self.counter = 0
                 self.progress = 1.0
                 self.currentSet += 1

@@ -9,35 +9,6 @@
 import SwiftUI
 let width = UIScreen.main.bounds.width
 
-struct CountDownView: View {
-    @ObservedObject var intervalTimer: IntervalTimer
-    var body: some View {
-        // geometry is not giving me size
-        GeometryReader { geometry in
-            ZStack {
-                Circle()
-                    .stroke(lineWidth: 20.0)
-                    .opacity(0.9)
-                    .foregroundColor(.gray)
-                Circle()
-                    .trim(from: 0.0, to: self.intervalTimer.progress)
-                    .stroke(style: StrokeStyle(lineWidth: 19.0, lineCap: .round, lineJoin: .round))
-                    .foregroundColor(Color.red)
-                    .rotationEffect(Angle(degrees: 270.0))
-                    .animation(.easeInOut(duration: 1.0))
-                VStack {
-                    Text("\(self.intervalTimer.displayTime)")
-                        .font(.largeTitle)
-                        .padding()
-                    Text("\(self.intervalTimer.displayIntervalSet)")
-                        .font(.title)
-                }
-            }
-            .padding()
-        }
-    }
-}
-
 struct IntervalPickerView: View {
     @ObservedObject var intervalTimer: IntervalTimer
 
@@ -70,22 +41,51 @@ struct IntervalPickerView: View {
 struct ContentView: View {
     @ObservedObject var intervalTimer = IntervalTimer()
     
+    @Environment(\.horizontalSizeClass) var h_sizeClass
+    @Environment(\.verticalSizeClass) var v_sizeClass
+    
     var body: some View {
-        VStack{
-            CountDownView(intervalTimer: self.intervalTimer)
-            IntervalPickerView(intervalTimer: self.intervalTimer)
-            HStack {
-                Button(action: {
-                    self.intervalTimer.stop()
-                }, label: {Image("stop")})
+        
+        if h_sizeClass == .compact && v_sizeClass == .regular {
+            VStack{
+                TimerView(intervalTimer: self.intervalTimer)
+                IntervalPickerView(intervalTimer: self.intervalTimer)
+                HStack {
+                    Button(action: {
+                        self.intervalTimer.stop()
+                    }, label: {Image("stop")})
                     .buttonStyle(PlainButtonStyle())
                     .padding()
-                Button(action: {
-                    self.intervalTimer.start()
-                }, label: {Image("start")})
+                    Button(action: {
+                        self.intervalTimer.start()
+                    }, label: {Image("start")})
                     .buttonStyle(PlainButtonStyle())
-                .padding()
+                    .padding()
+                }
             }
+        }
+        
+        if h_sizeClass == .compact && v_sizeClass == .compact ||
+            h_sizeClass == .regular && v_sizeClass == .compact {
+            HStack{
+                TimerView(intervalTimer: self.intervalTimer)
+                VStack {
+                    IntervalPickerView(intervalTimer: self.intervalTimer)
+                    HStack {
+                        Button(action: {
+                            self.intervalTimer.stop()
+                        }, label: {Image("stop")})
+                        .buttonStyle(PlainButtonStyle())
+                        .padding()
+                        Button(action: {
+                            self.intervalTimer.start()
+                        }, label: {Image("start")})
+                        .buttonStyle(PlainButtonStyle())
+                        .padding()
+                    }
+                }
+            }
+
         }
     }
 }
@@ -93,6 +93,5 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
-        
     }
 }
