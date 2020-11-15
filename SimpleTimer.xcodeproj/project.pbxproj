@@ -7,7 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B8860AAB24E588AB0016986B /* CountDown.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B8860AAA24E588AB0016986B /* CountDown.mp3 */; };
+		B85C6E2D2561789D00C79895 /* StartSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B85C6E2B2561789D00C79895 /* StartSound.mp3 */; };
+		B85C6E2E2561789D00C79895 /* CountDown.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B85C6E2C2561789D00C79895 /* CountDown.mp3 */; };
+		B85C6E3325617E7C00C79895 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85C6E3225617E7C00C79895 /* SettingsView.swift */; };
+		B85C6E3925617F1500C79895 /* CountDownOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85C6E3825617F1500C79895 /* CountDownOverlayView.swift */; };
+		B85C6E3D256FFEF400C79895 /* AnimationCompletionObserverModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85C6E3C256FFEF300C79895 /* AnimationCompletionObserverModifier.swift */; };
 		B8860AAE24E813F10016986B /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8860AAD24E813F10016986B /* AudioToolbox.framework */; };
 		B8860AB024E81A320016986B /* Sounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8860AAF24E81A320016986B /* Sounds.swift */; };
 		B8BE117025290752006F09EF /* Simple_TimerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BE116F25290752006F09EF /* Simple_TimerTests.swift */; };
@@ -32,7 +36,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		B8860AAA24E588AB0016986B /* CountDown.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = CountDown.mp3; sourceTree = "<group>"; };
+		B85C6E2B2561789D00C79895 /* StartSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = StartSound.mp3; sourceTree = SOURCE_ROOT; };
+		B85C6E2C2561789D00C79895 /* CountDown.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = CountDown.mp3; sourceTree = SOURCE_ROOT; };
+		B85C6E3225617E7C00C79895 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		B85C6E3825617F1500C79895 /* CountDownOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountDownOverlayView.swift; sourceTree = "<group>"; };
+		B85C6E3C256FFEF300C79895 /* AnimationCompletionObserverModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationCompletionObserverModifier.swift; sourceTree = "<group>"; };
 		B8860AAD24E813F10016986B /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		B8860AAF24E81A320016986B /* Sounds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sounds.swift; sourceTree = "<group>"; };
 		B8BE116D25290752006F09EF /* Simple TimerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Simple TimerTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -69,6 +77,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B85C6E3125617E5700C79895 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B8BE118825372585006F09EF /* TimerIndicator.swift */,
+				B85C6E3225617E7C00C79895 /* SettingsView.swift */,
+				B85C6E3825617F1500C79895 /* CountDownOverlayView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		B8860AAC24E813F00016986B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -108,7 +126,9 @@
 		B8D65E7A24D6393E00125306 /* SimpleTimer */ = {
 			isa = PBXGroup;
 			children = (
-				B8860AAA24E588AB0016986B /* CountDown.mp3 */,
+				B85C6E3125617E5700C79895 /* Views */,
+				B85C6E2C2561789D00C79895 /* CountDown.mp3 */,
+				B85C6E2B2561789D00C79895 /* StartSound.mp3 */,
 				B8D65E7B24D6393E00125306 /* AppDelegate.swift */,
 				B8D65E7D24D6393E00125306 /* SceneDelegate.swift */,
 				B8D65E7F24D6393E00125306 /* ContentView.swift */,
@@ -118,7 +138,7 @@
 				B8D65E8324D6394100125306 /* Preview Content */,
 				B8D65E8F24D65CBF00125306 /* IntervalTimer.swift */,
 				B8860AAF24E81A320016986B /* Sounds.swift */,
-				B8BE118825372585006F09EF /* TimerIndicator.swift */,
+				B85C6E3C256FFEF300C79895 /* AnimationCompletionObserverModifier.swift */,
 			);
 			path = SimpleTimer;
 			sourceTree = "<group>";
@@ -219,10 +239,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B8860AAB24E588AB0016986B /* CountDown.mp3 in Resources */,
 				B8D65E8824D6394100125306 /* LaunchScreen.storyboard in Resources */,
 				B8D65E8524D6394100125306 /* Preview Assets.xcassets in Resources */,
 				B8D65E8224D6394100125306 /* Assets.xcassets in Resources */,
+				B85C6E2E2561789D00C79895 /* CountDown.mp3 in Resources */,
+				B85C6E2D2561789D00C79895 /* StartSound.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -241,8 +262,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B85C6E3325617E7C00C79895 /* SettingsView.swift in Sources */,
 				B8D65E9024D65CBF00125306 /* IntervalTimer.swift in Sources */,
 				B8D65E7C24D6393E00125306 /* AppDelegate.swift in Sources */,
+				B85C6E3925617F1500C79895 /* CountDownOverlayView.swift in Sources */,
+				B85C6E3D256FFEF400C79895 /* AnimationCompletionObserverModifier.swift in Sources */,
 				B8860AB024E81A320016986B /* Sounds.swift in Sources */,
 				B8D65E7E24D6393E00125306 /* SceneDelegate.swift in Sources */,
 				B8BE118925372586006F09EF /* TimerIndicator.swift in Sources */,
@@ -439,6 +463,7 @@
 				DEVELOPMENT_TEAM = 79D2P98PU7;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = SimpleTimer/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -459,6 +484,7 @@
 				DEVELOPMENT_TEAM = 79D2P98PU7;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = SimpleTimer/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

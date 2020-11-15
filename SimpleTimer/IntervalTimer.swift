@@ -67,6 +67,7 @@ class IntervalTimer: ObservableObject {
         
         self.sourceTimer?.schedule(deadline: .now(), repeating: 1.0)
         self.sourceTimer?.resume()
+        AudioServicesPlayAlertSound(Sounds.start)
     }
     
     func stop() {
@@ -94,6 +95,7 @@ class IntervalTimer: ObservableObject {
             }
             
             if self.counter == self.interval {
+                AudioServicesPlayAlertSound(Sounds.start)
                 self.counter = 0
                 self.progress = 1.0
                 self.currentSet += 1

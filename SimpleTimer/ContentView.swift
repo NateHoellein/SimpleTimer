@@ -7,39 +7,12 @@
 //
 
 import SwiftUI
-let width = UIScreen.main.bounds.width
 
-struct IntervalPickerView: View {
-    @ObservedObject var intervalTimer: IntervalTimer
 
-    var body: some View {
-
-        VStack {
-            Text("\(intervalTimer.intervalTimeDisplay)").font(.title)
-            Stepper(value: $intervalTimer.intervalMinute,
-                in: 0 ... 10,
-                step: 1
-            ) {
-                Text("Minutes: \(intervalTimer.intervalMinute)").font(.title)
-            }.padding()
-            Stepper(value: $intervalTimer.intervalSeconds,
-                    in: 0 ... 60,
-                    step: 1
-            ) {
-                Text("Seconds: \(String(format: "%02d", intervalTimer.intervalSeconds))").font(.title)
-            }.padding()
-            Stepper(value: $intervalTimer.intervalSets,
-                in: 0 ... 50,
-                step: 1
-            ) {
-                Text("Intervals: \(intervalTimer.intervalSets)").font(.title)
-            }.padding()
-        }
-    }
-}
 
 struct ContentView: View {
     @ObservedObject var intervalTimer = IntervalTimer()
+    @State var isPresented = false
     
     @Environment(\.horizontalSizeClass) var h_sizeClass
     @Environment(\.verticalSizeClass) var v_sizeClass
@@ -47,9 +20,9 @@ struct ContentView: View {
     var body: some View {
         
         if h_sizeClass == .compact && v_sizeClass == .regular {
-            VStack{
+            VStack {
                 TimerView(intervalTimer: self.intervalTimer)
-                IntervalPickerView(intervalTimer: self.intervalTimer)
+                SettingsView(intervalTimer: self.intervalTimer)
                 HStack {
                     Button(action: {
                         self.intervalTimer.stop()
@@ -57,8 +30,14 @@ struct ContentView: View {
                     .buttonStyle(PlainButtonStyle())
                     .padding()
                     Button(action: {
+                        
+                        self.isPresented.toggle()
+                        
+                    }, label: {Image("start")}).sheet(isPresented: $isPresented, onDismiss: {
                         self.intervalTimer.start()
-                    }, label: {Image("start")})
+                    }, content: {
+                        CountDownOverlayView(showModal: $isPresented)
+                    })
                     .buttonStyle(PlainButtonStyle())
                     .padding()
                 }
@@ -70,7 +49,7 @@ struct ContentView: View {
             HStack{
                 TimerView(intervalTimer: self.intervalTimer)
                 VStack {
-                    IntervalPickerView(intervalTimer: self.intervalTimer)
+                    SettingsView(intervalTimer: self.intervalTimer)
                     HStack {
                         Button(action: {
                             self.intervalTimer.stop()
