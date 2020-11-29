@@ -11,16 +11,23 @@ import Foundation
 import SwiftUI
 import AudioToolbox
 
+enum Timerstate {
+    case running
+    case paused
+    case stopped
+    case reset
+}
+
 class IntervalTimer: ObservableObject {
     private var sourceTimer: DispatchSourceTimer?
     private var queue: DispatchQueue?
     private var counter: Int
     private var currentSet: Int
     
+    @Published var running: Timerstate = .stopped
     @Published var displayTime = "00:00"
     @Published var displayIntervalSet = ""
     @Published var progress: CGFloat = 0.0000
-    @Published var setComplete: Bool = false
     @Published var intervalTimeDisplay: String = ""
     @Published var intervalMinute: Int = 2 {
         didSet {
@@ -47,9 +54,13 @@ class IntervalTimer: ObservableObject {
         
         self.queue = DispatchQueue(label: "com.4bitshift.intervaltimer")
         self.sourceTimer = DispatchSource.makeTimerSource(flags: DispatchSource.TimerFlags.strict, queue: self.queue)
-        
+        self.sourceTimer?.setEventHandler {
+            self.updateDisplays()
+        }
+
         intervalTimeDisplay = String(format: "%d:%02d", intervalMinute, intervalSeconds)
         displayIntervalSet = "\(currentSet) - \(intervalSets)"
+
     }
     
     deinit {
@@ -59,26 +70,61 @@ class IntervalTimer: ObservableObject {
         }
     }
     
-    func start() {
-        print("start")
-        self.sourceTimer?.setEventHandler {
-            self.updateDisplays()
-        }
+    func reset() {
+        self.running = .stopped
         
-        self.sourceTimer?.schedule(deadline: .now(), repeating: 1.0)
-        self.sourceTimer?.resume()
-        AudioServicesPlayAlertSound(Sounds.start)
+        currentSet = 1
+        counter = 0
+        progress = 0.0000
+        interval = intervalMinute * 60 + intervalSeconds
+        intervalTimeDisplay = String(format: "%d:%02d", intervalMinute, intervalSeconds)
+        displayIntervalSet = "\(currentSet) - \(intervalSets)"
+        displayTime = "00:00"
     }
     
-    func stop() {
-        print("stop")
+    func pause() {
+        print("pause")
+        self.running = .paused
         self.sourceTimer?.suspend()
     }
     
-    func updateDisplays() {
+    func start() {
         
-        DispatchQueue.main.async {
+        switch running {
+            case .stopped:
+                running = .running
+                self.sourceTimer?.schedule(deadline: .now(), repeating: 1.0)
+                self.sourceTimer?.resume()
+                AudioServicesPlayAlertSound(Sounds.start)
             
+            case .paused:
+                running = .running
+                self.sourceTimer?.schedule(deadline: .now(), repeating: 1.0)
+                self.sourceTimer?.resume()
+                AudioServicesPlayAlertSound(Sounds.start)
+            case .running:
+                running = .paused
+            case .reset:
+                running = .stopped
+        }
+    }
+    
+    func stop() {
+        switch running {
+        case .running:
+            self.running = .stopped
+            self.sourceTimer?.suspend()
+        case .paused:
+            print("PAUSED")
+        case .reset:
+            print("RESET")
+        case .stopped:
+            print("STOPPED")
+        }
+    }
+    
+    func updateDisplays() {
+        DispatchQueue.main.async {
             self.progress = CGFloat(Double(self.counter) / Double(self.interval))
             self.displayTime = IntervalTimer.display(self.counter)
 
@@ -89,8 +135,8 @@ class IntervalTimer: ObservableObject {
             if self.counter == self.interval &&
                 self.currentSet == self.intervalSets {
                 // all done
-                self.setComplete = true
                 self.sourceTimer?.suspend()
+                self.reset()
                 return
             }
             

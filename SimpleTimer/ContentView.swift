@@ -17,23 +17,52 @@ struct ContentView: View {
     @Environment(\.horizontalSizeClass) var h_sizeClass
     @Environment(\.verticalSizeClass) var v_sizeClass
     
+    fileprivate func getStopLabel() -> Image {
+        return Image( self.intervalTimer.running == .paused ? "Reset" : "Stop-1")
+    }
+    
+    fileprivate func getStartLabel() -> Image {
+        return Image( self.intervalTimer.running == .stopped ||
+                        self.intervalTimer.running == .paused ? "Start-1" : "Paused")
+    }
+    
+    fileprivate func stopButtonAction() {
+        if self.intervalTimer.running == .running {
+            self.intervalTimer.stop()
+        }
+        if self.intervalTimer.running == .paused {
+            self.intervalTimer.reset()
+        }
+    }
+    
+    fileprivate func startButtonAction() {
+        if self.intervalTimer.running == .stopped {
+            self.isPresented.toggle()
+        }
+        if self.intervalTimer.running == .paused {
+            self.isPresented.toggle()
+        }
+        if self.intervalTimer.running == .running {
+            self.intervalTimer.pause()
+        }
+    }
+    
     var body: some View {
-        
+            
         if h_sizeClass == .compact && v_sizeClass == .regular {
             VStack {
                 TimerView(intervalTimer: self.intervalTimer)
                 SettingsView(intervalTimer: self.intervalTimer)
                 HStack {
                     Button(action: {
-                        self.intervalTimer.stop()
-                    }, label: {Image("stop")})
+                        stopButtonAction()
+                    }, label: { getStopLabel() })
                     .buttonStyle(PlainButtonStyle())
+                    .disabled(self.intervalTimer.running == .running)
                     .padding()
                     Button(action: {
-                        
-                        self.isPresented.toggle()
-                        
-                    }, label: {Image("start")}).sheet(isPresented: $isPresented, onDismiss: {
+                        startButtonAction()
+                    }, label: { getStartLabel() }).sheet(isPresented: $isPresented, onDismiss: {
                         self.intervalTimer.start()
                     }, content: {
                         CountDownOverlayView(showModal: $isPresented)
@@ -52,19 +81,23 @@ struct ContentView: View {
                     SettingsView(intervalTimer: self.intervalTimer)
                     HStack {
                         Button(action: {
-                            self.intervalTimer.stop()
-                        }, label: {Image("stop")})
+                            self.stopButtonAction()
+                        }, label: { getStopLabel()})
                         .buttonStyle(PlainButtonStyle())
+                        .disabled(self.intervalTimer.running == .running)
                         .padding()
                         Button(action: {
+                            startButtonAction()
+                        }, label: { getStartLabel() }).sheet(isPresented: $isPresented, onDismiss: {
                             self.intervalTimer.start()
-                        }, label: {Image("start")})
+                        }, content: {
+                            CountDownOverlayView(showModal: $isPresented)
+                        })
                         .buttonStyle(PlainButtonStyle())
                         .padding()
                     }
                 }
             }
-
         }
     }
 }
