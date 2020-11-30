@@ -94,7 +94,7 @@ struct CountDownOverlayView: View {
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(Color.gray.opacity(0.0))
-        }
+        }   
     }
 }
 
@@ -104,7 +104,6 @@ struct CountDownBoxView: View {
         Text(text)
             .frame(width: 200, height: 200, alignment: .center)
             .font(.system(size: 72.0))
-            .foregroundColor(.white)
             .background(Rectangle()
                             .foregroundColor(.clear)
                             .cornerRadius(10.0)
