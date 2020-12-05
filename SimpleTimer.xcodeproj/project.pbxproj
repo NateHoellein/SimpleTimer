@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B816B9CE257BEFE60095ABC5 /* ButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B816B9CD257BEFE60095ABC5 /* ButtonsView.swift */; };
 		B85C6E2D2561789D00C79895 /* StartSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B85C6E2B2561789D00C79895 /* StartSound.mp3 */; };
 		B85C6E2E2561789D00C79895 /* CountDown.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B85C6E2C2561789D00C79895 /* CountDown.mp3 */; };
 		B85C6E3325617E7C00C79895 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85C6E3225617E7C00C79895 /* SettingsView.swift */; };
@@ -36,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B816B9CD257BEFE60095ABC5 /* ButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonsView.swift; sourceTree = "<group>"; };
 		B85C6E2B2561789D00C79895 /* StartSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = StartSound.mp3; sourceTree = SOURCE_ROOT; };
 		B85C6E2C2561789D00C79895 /* CountDown.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = CountDown.mp3; sourceTree = SOURCE_ROOT; };
 		B85C6E3225617E7C00C79895 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 				B8BE118825372585006F09EF /* TimerIndicator.swift */,
 				B85C6E3225617E7C00C79895 /* SettingsView.swift */,
 				B85C6E3825617F1500C79895 /* CountDownOverlayView.swift */,
+				B816B9CD257BEFE60095ABC5 /* ButtonsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -268,6 +271,7 @@
 				B85C6E3925617F1500C79895 /* CountDownOverlayView.swift in Sources */,
 				B85C6E3D256FFEF400C79895 /* AnimationCompletionObserverModifier.swift in Sources */,
 				B8860AB024E81A320016986B /* Sounds.swift in Sources */,
+				B816B9CE257BEFE60095ABC5 /* ButtonsView.swift in Sources */,
 				B8D65E7E24D6393E00125306 /* SceneDelegate.swift in Sources */,
 				B8BE118925372586006F09EF /* TimerIndicator.swift in Sources */,
 				B8D65E8024D6393E00125306 /* ContentView.swift in Sources */,
