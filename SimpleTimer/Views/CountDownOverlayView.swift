@@ -18,35 +18,25 @@ struct CountDownOverlayView: View {
     @Environment(\.verticalSizeClass) var v_sizeClass
     
     var body: some View {
-        
-        
+
         if h_sizeClass == .compact && v_sizeClass == .regular {
         
             VStack {
-                CountDownBoxView(text: "3").padding()
-                    .scaleEffect(scale)
+                CountDownBoxView(scale: scale, text: "3").padding()
                     .onAppear {
-                        let baseAnimation = Animation.easeInOut(duration: 1.0)
-                        let once = baseAnimation.repeatCount(1, autoreverses: false)
-                        return withAnimation(once.delay(0.5)) {
+                        return withAnimation(Animation.easeInOut(duration: 1.0).delay(0.5)) {
                             self.scale = 0.0
                         }
                     }
-                CountDownBoxView(text: "2").padding()
-                    .scaleEffect(scale1)
+                CountDownBoxView(scale: scale1, text: "2").padding()
                     .onAppear {
-                        let baseAnimation = Animation.easeInOut(duration: 1.0)
-                        let once = baseAnimation.repeatCount(1, autoreverses: false)
-                        return withAnimation(once.delay(1.5)) {
+                        return withAnimation(Animation.easeInOut(duration: 1.0).delay(1.5)) {
                             self.scale1 = 0.0
                         }
                     }
-                CountDownBoxView(text: "1").padding()
-                    .scaleEffect(scale2)
+                CountDownBoxView(scale: scale2, text: "1").padding()
                     .onAppear {
-                        let baseAnimation = Animation.easeInOut(duration: 1.0)
-                        let once = baseAnimation.repeatCount(1, autoreverses: false)
-                        return withAnimation(once.delay(2.5)) {
+                        return withAnimation(Animation.easeInOut(duration: 1.0).delay(2.5)) {
                             self.scale2 = 0.0
                         }
                     }
@@ -55,36 +45,27 @@ struct CountDownOverlayView: View {
                     })
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .background(Color.gray.opacity(0.0))
+            .background(Color.clear)
         }
         
         if h_sizeClass == .compact && v_sizeClass == .compact ||
             h_sizeClass == .regular && v_sizeClass == .compact {
             HStack {
-                CountDownBoxView(text: "3").padding()
-                    .scaleEffect(scale)
+                CountDownBoxView(scale: scale, text: "3").padding()
                     .onAppear {
-                        let baseAnimation = Animation.easeInOut(duration: 1.0)
-                        let once = baseAnimation.repeatCount(1, autoreverses: false)
-                        return withAnimation(once.delay(0.5)) {
+                        return withAnimation(Animation.easeInOut(duration: 1.0).delay(0.5)) {
                             self.scale = 0.0
                         }
                     }
-                CountDownBoxView(text: "2").padding()
-                    .scaleEffect(scale1)
+                CountDownBoxView(scale: scale1, text: "2").padding()
                     .onAppear {
-                        let baseAnimation = Animation.easeInOut(duration: 1.0)
-                        let once = baseAnimation.repeatCount(1, autoreverses: false)
-                        return withAnimation(once.delay(1.5)) {
+                        return withAnimation(Animation.easeInOut(duration: 1.0).delay(1.5)) {
                             self.scale1 = 0.0
                         }
                     }
-                CountDownBoxView(text: "1").padding()
-                    .scaleEffect(scale2)
+                CountDownBoxView(scale: scale2, text: "1").padding()
                     .onAppear {
-                        let baseAnimation = Animation.easeInOut(duration: 1.0)
-                        let once = baseAnimation.repeatCount(1, autoreverses: false)
-                        return withAnimation(once.delay(2.5)) {
+                        return withAnimation(Animation.easeInOut(duration: 1.0).delay(2.5)) {
                             self.scale2 = 0.0
                         }
                     }
@@ -93,20 +74,23 @@ struct CountDownOverlayView: View {
                     })
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .background(Color.gray.opacity(0.0))
+            .background(Color.clear)
         }   
     }
 }
 
 struct CountDownBoxView: View {
+    var scale: CGFloat
     var text: String
     var body: some View {
         Text(text)
             .frame(width: 200, height: 200, alignment: .center)
-            .font(.system(size: 72.0))
+            .font(.system(size: 82.0))
             .background(Rectangle()
                             .foregroundColor(.clear)
                             .cornerRadius(10.0)
                             .transition(.asymmetric(insertion: .scale, removal: .opacity)))
+            .scaleEffect(scale)
+        
     }
 }
