@@ -6,8 +6,8 @@ A simple interval time app that does just that.  No in app purchases to change s
 2. Intervals can be from 1 second up to 10 minutes
 3. A count down before the timer starts
 
-![Dark Mode](Doc/darkmode.jpg)
+![Dark Mode](https://github.com/NateHoellein/SimpleTimer/blob/master/Doc/darkmode.png)
 
-![Light Mode](Doc/lightmode.jpg)
+![Light Mode](https://github.com/NateHoellein/SimpleTimer/blob/master/Doc/darkmode.png)
 
 
