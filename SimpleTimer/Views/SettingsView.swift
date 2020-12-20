@@ -19,19 +19,19 @@ struct SettingsView: View {
                     in: 0 ... 10,
                     step: 1
             ) {
-                Text("Minutes: \(intervalTimer.intervalMinute)").font(.title)
+                Text(NSLocalizedString("Minutes: \(intervalTimer.intervalMinute)", comment:"How many interval minutes")).font(.title)
             }.padding()
             Stepper(value: $intervalTimer.intervalSeconds,
                     in: 0 ... 60,
                     step: 1
             ) {
-                Text("Seconds: \(String(format: "%02d", intervalTimer.intervalSeconds))").font(.title)
+                Text(NSLocalizedString("Seconds: \(String(format: "%02d", intervalTimer.intervalSeconds))", comment: "How many interval seconds.")).font(.title)
             }.padding()
             Stepper(value: $intervalTimer.intervalSets,
                     in: 0 ... 50,
                     step: 1
             ) {
-                Text("Intervals: \(intervalTimer.intervalSets)").font(.title)
+                Text(NSLocalizedString("Intervals: \(intervalTimer.intervalSets)", comment: "How many intervals")).font(.title)
             }.padding()
         }
     }

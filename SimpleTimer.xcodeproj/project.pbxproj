@@ -10,6 +10,7 @@
 		B816B9CE257BEFE60095ABC5 /* ButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B816B9CD257BEFE60095ABC5 /* ButtonsView.swift */; };
 		B816B9D4257D2AD60095ABC5 /* lightmode.png in Resources */ = {isa = PBXBuildFile; fileRef = B816B9D2257D2AD50095ABC5 /* lightmode.png */; };
 		B816B9D5257D2AD60095ABC5 /* darkmode.png in Resources */ = {isa = PBXBuildFile; fileRef = B816B9D3257D2AD60095ABC5 /* darkmode.png */; };
+		B816B9DE257D404F0095ABC5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B816B9E0257D404F0095ABC5 /* Localizable.strings */; };
 		B85C6E2D2561789D00C79895 /* StartSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B85C6E2B2561789D00C79895 /* StartSound.mp3 */; };
 		B85C6E2E2561789D00C79895 /* CountDown.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B85C6E2C2561789D00C79895 /* CountDown.mp3 */; };
 		B85C6E3325617E7C00C79895 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85C6E3225617E7C00C79895 /* SettingsView.swift */; };
@@ -42,6 +43,7 @@
 		B816B9CD257BEFE60095ABC5 /* ButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonsView.swift; sourceTree = "<group>"; };
 		B816B9D2257D2AD50095ABC5 /* lightmode.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lightmode.png; sourceTree = "<group>"; };
 		B816B9D3257D2AD60095ABC5 /* darkmode.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = darkmode.png; sourceTree = "<group>"; };
+		B816B9DF257D404F0095ABC5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		B85C6E2B2561789D00C79895 /* StartSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = StartSound.mp3; sourceTree = SOURCE_ROOT; };
 		B85C6E2C2561789D00C79895 /* CountDown.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = CountDown.mp3; sourceTree = SOURCE_ROOT; };
 		B85C6E3225617E7C00C79895 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
@@ -156,6 +158,7 @@
 				B8D65E8F24D65CBF00125306 /* IntervalTimer.swift */,
 				B8860AAF24E81A320016986B /* Sounds.swift */,
 				B85C6E3C256FFEF300C79895 /* AnimationCompletionObserverModifier.swift */,
+				B816B9E0257D404F0095ABC5 /* Localizable.strings */,
 			);
 			path = SimpleTimer;
 			sourceTree = "<group>";
@@ -261,6 +264,7 @@
 				B816B9D5257D2AD60095ABC5 /* darkmode.png in Resources */,
 				B8D65E8224D6394100125306 /* Assets.xcassets in Resources */,
 				B85C6E2E2561789D00C79895 /* CountDown.mp3 in Resources */,
+				B816B9DE257D404F0095ABC5 /* Localizable.strings in Resources */,
 				B816B9D4257D2AD60095ABC5 /* lightmode.png in Resources */,
 				B85C6E2D2561789D00C79895 /* StartSound.mp3 in Resources */,
 			);
@@ -305,6 +309,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		B816B9E0257D404F0095ABC5 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B816B9DF257D404F0095ABC5 /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		B8D65E8624D6394100125306 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

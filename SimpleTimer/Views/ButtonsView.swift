@@ -62,5 +62,4 @@ struct ButtonsView: View {
             self.intervalTimer.pause()
         }
     }
-
 }

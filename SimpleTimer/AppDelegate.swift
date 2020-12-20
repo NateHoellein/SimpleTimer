@@ -34,9 +34,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             print("no file")
         }
         
+        UIApplication.shared.isIdleTimerDisabled = true
         return true
     }
 
+    func applicationWillResignActive(_ application: UIApplication) {
+        UIApplication.shared.isIdleTimerDisabled = false
+    }
     // MARK: UISceneSession Lifecycle
 
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {

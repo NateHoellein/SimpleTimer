@@ -28,6 +28,7 @@ class IntervalTimer: ObservableObject {
     @Published var displayTime = "00:00"
     @Published var displayIntervalSet = ""
     @Published var progress: CGFloat = 0.0000
+    @Published var setProgress: CGFloat = 0.000
     @Published var intervalTimeDisplay: String = ""
     @Published var intervalMinute: Int = 2 {
         didSet {
@@ -76,6 +77,7 @@ class IntervalTimer: ObservableObject {
         currentSet = 1
         counter = 0
         progress = 0.0000
+        setProgress = 0.000
         interval = intervalMinute * 60 + intervalSeconds
         intervalTimeDisplay = String(format: "%d:%02d", intervalMinute, intervalSeconds)
         displayIntervalSet = "\(currentSet) - \(intervalSets)"
@@ -127,7 +129,8 @@ class IntervalTimer: ObservableObject {
         DispatchQueue.main.async {
             self.progress = CGFloat(Double(self.counter) / Double(self.interval))
             self.displayTime = IntervalTimer.display(self.counter)
-
+            
+            
             if ((self.interval - 5)...self.interval).contains(self.counter) {
                 AudioServicesPlayAlertSound(Sounds.countDown)
             }
@@ -144,6 +147,7 @@ class IntervalTimer: ObservableObject {
                 AudioServicesPlayAlertSound(Sounds.start)
                 self.counter = 0
                 self.progress = 1.0
+                self.setProgress = CGFloat(Double(self.currentSet) / Double(self.intervalSets))
                 self.currentSet += 1
                 self.displayIntervalSet = "\(self.currentSet) - \(self.intervalSets)"
             }

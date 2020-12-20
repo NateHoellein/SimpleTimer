@@ -22,7 +22,7 @@ struct ContentView: View {
                 TimerView(intervalTimer: self.intervalTimer)
                 SettingsView(intervalTimer: self.intervalTimer)
                 ButtonsView(intervalTimer: self.intervalTimer, isPresented: self.isPresented)
-            }
+            }   
         }
         
         if h_sizeClass == .compact && v_sizeClass == .compact ||

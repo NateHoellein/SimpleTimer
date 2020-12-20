@@ -1,0 +1,11 @@
+/*
+  Localizable.strings
+  SimpleTimer
+
+  Created by Nathan Hoellein on 12/6/20.
+  Copyright © 2020 4BitShift. All rights reserved.
+*/
+
+"Minutes: %d" = "Minutes: %d";
+"Seconds: %02d" = "Seconds: %02d";
+"Intervals: %d" = "Intervals: %d";
