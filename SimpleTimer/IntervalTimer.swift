@@ -23,6 +23,8 @@ class IntervalTimer: ObservableObject {
     private var queue: DispatchQueue?
     private var counter: Int
     private var currentSet: Int
+    private var totalTicks: Int = 0
+    private var accumulatedTicks: Int
     
     @Published var running: Timerstate = .stopped
     @Published var displayTime = "00:00"
@@ -34,24 +36,30 @@ class IntervalTimer: ObservableObject {
         didSet {
             intervalTimeDisplay = String(format: "%d:%02d", intervalMinute, intervalSeconds)
             interval = intervalMinute * 60 + intervalSeconds
+            totalTicks = intervalSets * interval
         }
     }
     @Published var intervalSeconds: Int = 0 {
         didSet {
             intervalTimeDisplay = String(format: "%d:%02d", intervalMinute, intervalSeconds)
             interval = intervalMinute * 60 + intervalSeconds
+            totalTicks = intervalSets * interval
         }
     }
     @Published var interval: Int = 120
     @Published var intervalSets: Int = 10 {
         didSet {
             displayIntervalSet = "\(currentSet) - \(intervalSets)"
+            totalTicks = intervalSets * interval
         }
     }
-    
+
     init() {
         currentSet = 1
         counter = 0
+
+        accumulatedTicks = 0
+        totalTicks = intervalSets * interval
         
         self.queue = DispatchQueue(label: "com.4bitshift.intervaltimer")
         self.sourceTimer = DispatchSource.makeTimerSource(flags: DispatchSource.TimerFlags.strict, queue: self.queue)
@@ -76,22 +84,26 @@ class IntervalTimer: ObservableObject {
         
         currentSet = 1
         counter = 0
+        accumulatedTicks = 0
+        totalTicks = 0
         progress = 0.0000
         setProgress = 0.000
         interval = intervalMinute * 60 + intervalSeconds
         intervalTimeDisplay = String(format: "%d:%02d", intervalMinute, intervalSeconds)
         displayIntervalSet = "\(currentSet) - \(intervalSets)"
         displayTime = "00:00"
+        UIApplication.shared.isIdleTimerDisabled = false
     }
     
     func pause() {
         print("pause")
         self.running = .paused
         self.sourceTimer?.suspend()
+        UIApplication.shared.isIdleTimerDisabled = false
     }
     
     func start() {
-        
+        UIApplication.shared.isIdleTimerDisabled = true
         switch running {
             case .stopped:
                 running = .running
@@ -112,6 +124,7 @@ class IntervalTimer: ObservableObject {
     }
     
     func stop() {
+        UIApplication.shared.isIdleTimerDisabled = false
         switch running {
         case .running:
             self.running = .stopped
@@ -128,30 +141,30 @@ class IntervalTimer: ObservableObject {
     func updateDisplays() {
         DispatchQueue.main.async {
             self.progress = CGFloat(Double(self.counter) / Double(self.interval))
+            self.setProgress = CGFloat(Double(self.accumulatedTicks) / Double(self.totalTicks))
+
             self.displayTime = IntervalTimer.display(self.counter)
-            
-            
+
             if ((self.interval - 5)...self.interval).contains(self.counter) {
                 AudioServicesPlayAlertSound(Sounds.countDown)
             }
-              
+
             if self.counter == self.interval &&
                 self.currentSet == self.intervalSets {
-                // all done
                 self.sourceTimer?.suspend()
                 self.reset()
                 return
             }
-            
+
             if self.counter == self.interval {
                 AudioServicesPlayAlertSound(Sounds.start)
                 self.counter = 0
                 self.progress = 1.0
-                self.setProgress = CGFloat(Double(self.currentSet) / Double(self.intervalSets))
                 self.currentSet += 1
                 self.displayIntervalSet = "\(self.currentSet) - \(self.intervalSets)"
             }
             self.counter += 1
+            self.accumulatedTicks += 1
         }
     }
 }

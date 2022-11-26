@@ -28,8 +28,7 @@ struct TimerView: View {
                 .opacity(0.9)
                 .foregroundColor(.gray)
                 .modifier(SetIndicator(pct: intervalTimer.setProgress))
-            
-            
+
             VStack {
                 Text("\(self.intervalTimer.displayTime)")
                     .font(.largeTitle)
@@ -111,7 +110,6 @@ struct SetIndicator: AnimatableModifier {
                      radius: radius,
                      startAngle: .degrees(start),
                      endAngle: .degrees(end), clockwise: false)
-            
             return p.strokedPath(.init(lineWidth: 8))
         }
     }

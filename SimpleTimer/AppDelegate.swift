@@ -34,7 +34,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             print("no file")
         }
         
-        UIApplication.shared.isIdleTimerDisabled = true
         return true
     }
 

@@ -10,7 +10,7 @@ import XCTest
 
 @testable import Simple_Timer
 
-class Simple_TimerTests: XCTestCase {
+class TimerDisplayTests: XCTestCase {
     
     func testTimeDisplay() {
         let timeDisplay = IntervalTimer.display(1)
