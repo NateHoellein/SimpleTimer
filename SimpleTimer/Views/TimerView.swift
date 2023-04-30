@@ -15,19 +15,43 @@ struct TimerView: View {
     
     var body: some View {
         ZStack {
-            
+
             Circle()
-                .strokeBorder(lineWidth: 20.0, antialiased: true)
-                .opacity(0.9)
-                .foregroundColor(.gray)
-                .modifier(TimerIndicator(pct: intervalTimer.progress))
-                .padding()
-            
+                .stroke(
+                    Color(.plum).opacity(0.5),
+                    lineWidth: 30
+                )
             Circle()
-                .strokeBorder(lineWidth: 10.0, antialiased: true)
-                .opacity(0.9)
-                .foregroundColor(.gray)
-                .modifier(SetIndicator(pct: intervalTimer.setProgress))
+                .trim(from: 0, to: intervalTimer.progress)
+                .stroke(
+                    Color(.plum),
+                    style: StrokeStyle(
+                        lineWidth: 30,
+                        lineCap: .round
+                    )
+                )
+                .rotationEffect(.degrees(-90))
+                .animation(.easeOut, value: intervalTimer.progress)
+
+            Circle()
+                .scale(x: 0.8, y: 0.8)
+                .stroke(
+                    Color(.peach).opacity(0.5),
+                    lineWidth: 30
+                )
+
+            Circle()
+                .scale(x: 0.8, y: 0.8)
+                .trim(from: 0, to: intervalTimer.overallProgress)
+                .stroke(
+                    Color(.peach),
+                    style: StrokeStyle(
+                        lineWidth: 30,
+                        lineCap: .round
+                    )
+                )
+                .rotationEffect(.degrees(-90))
+                .animation(.easeOut, value: intervalTimer.overallProgress)
 
             VStack {
                 Text("\(self.intervalTimer.displayTime)")
@@ -37,6 +61,7 @@ struct TimerView: View {
                     .font(.title)
             }
         }
+        .padding(20)
     }
 }
 
@@ -45,7 +70,7 @@ struct TimerIndicator: AnimatableModifier {
     var pct: CGFloat = 0
 
     var animatableData: CGFloat {
-        get { pct }
+        get { return pct }
         set { pct = newValue }
     }
     
@@ -73,7 +98,7 @@ struct TimerIndicator: AnimatableModifier {
                      startAngle: .degrees(start),
                      endAngle: .degrees(end), clockwise: false)
             
-            return p.strokedPath(.init(lineWidth: 15, dash: [6, 3], dashPhase: 10))
+            return p.strokedPath(.init(lineWidth: 17, lineCap: .round, lineJoin: .bevel))
         }
     }
 }
@@ -99,7 +124,7 @@ struct SetIndicator: AnimatableModifier {
         func path(in rect: CGRect) -> Path {
             var p = Path()
             
-            let diameter = min(rect.size.width, rect.size.height) - 10
+            let diameter = min(rect.size.width, rect.size.height) - 20
             let radius = diameter / 2.0
             let center = CGPoint(x: rect.origin.x + rect.size.width / 2.0,
                                  y: rect.origin.y + rect.size.height / 2.0)
@@ -110,7 +135,12 @@ struct SetIndicator: AnimatableModifier {
                      radius: radius,
                      startAngle: .degrees(start),
                      endAngle: .degrees(end), clockwise: false)
-            return p.strokedPath(.init(lineWidth: 8))
+            return p.strokedPath(.init(lineWidth: 17, lineCap: .round, lineJoin: .bevel))
         }
     }
+}
+
+
+#Preview {
+    TimerView(intervalTimer: IntervalTimer())
 }

@@ -21,8 +21,13 @@ struct ContentView: View {
             VStack {
                 TimerView(intervalTimer: self.intervalTimer)
                 SettingsView(intervalTimer: self.intervalTimer)
-                ButtonsView(intervalTimer: self.intervalTimer, isPresented: self.isPresented)
+                ButtonsView(intervalTimer: self.intervalTimer, isPresented: self.$isPresented)
             }   
+            .sheet(isPresented: $isPresented, onDismiss: {
+                Task { await intervalTimer.start() }
+            }) {
+                CountDownOverlayView(showModal: $isPresented)
+            }
         }
         
         if h_sizeClass == .compact && v_sizeClass == .compact ||
@@ -31,8 +36,13 @@ struct ContentView: View {
                 TimerView(intervalTimer: self.intervalTimer)
                 VStack {
                     SettingsView(intervalTimer: self.intervalTimer)
-                    ButtonsView(intervalTimer: self.intervalTimer, isPresented: self.isPresented)
+                    ButtonsView(intervalTimer: self.intervalTimer, isPresented: self.$isPresented)
                 }
+            }
+            .sheet(isPresented: $isPresented, onDismiss: {
+                Task { await intervalTimer.start() }
+            }) {
+                CountDownOverlayView(showModal: $isPresented)
             }
         }
     }

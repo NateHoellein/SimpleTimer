@@ -9,57 +9,70 @@
 import SwiftUI
 
 struct ButtonsView: View {
-    
+    private let buttonSize = 60.0
     @ObservedObject var intervalTimer: IntervalTimer
-    @State var isPresented: Bool
-    
+    @Binding var isPresented: Bool
+
     var body: some View {
         HStack {
             Button(action: {
-                self.stopButtonAction()
-            }, label: { getStopLabel()})
-            .buttonStyle(PlainButtonStyle())
-            .disabled(self.intervalTimer.running == .running)
+                Task { await self.stopButtonAction() }
+            }, label: {
+                getStopLabel()
+                    .font(.system(size: buttonSize))
+                    .foregroundStyle(Color(.brickRed))
+            })
+            .disabled(self.intervalTimer.timerState == .running)
             .padding()
             Button(action: {
-                startButtonAction()
-            }, label: { getStartLabel() }).sheet(isPresented: $isPresented, onDismiss: {
-                self.intervalTimer.start()
-            }, content: {
-                CountDownOverlayView(showModal: $isPresented)
+                Task { await startButtonAction() }
+            }, label: {
+                getStartLabel()
+                    .font(.system(size: buttonSize))
+                    .foregroundStyle(Color(.green))
             })
-            .buttonStyle(PlainButtonStyle())
             .padding()
         }
     }
-    
+    //  Content to launch CountDownOverlayView - should just toggle ispresented?
+
     fileprivate func getStopLabel() -> Image {
-        return Image( self.intervalTimer.running == .paused ? "Reset" : "Stop-1")
+        return Image(systemName: self.intervalTimer.timerState == .paused ?
+                     "arrow.trianglehead.clockwise" :
+                        "stop.circle")
     }
     
     fileprivate func getStartLabel() -> Image {
-        return Image( self.intervalTimer.running == .stopped ||
-                        self.intervalTimer.running == .paused ? "Start-1" : "Paused")
+        return Image(systemName: self.intervalTimer.timerState == .stopped ||
+                        self.intervalTimer.timerState == .paused ? "play.circle" : "pause.circle")
     }
     
-    fileprivate func stopButtonAction() {
-        if self.intervalTimer.running == .running {
-            self.intervalTimer.stop()
+    fileprivate func stopButtonAction() async {
+        if self.intervalTimer.timerState == .running {
+            await self.intervalTimer.stop()
         }
-        if self.intervalTimer.running == .paused {
-            self.intervalTimer.reset()
+        if self.intervalTimer.timerState == .paused {
+            await self.intervalTimer.reset()
         }
     }
     
-    fileprivate func startButtonAction() {
-        if self.intervalTimer.running == .stopped {
+    fileprivate func startButtonAction() async {
+        if self.intervalTimer.timerState == .stopped {
+            UIApplication.shared.isIdleTimerDisabled = false
             self.isPresented.toggle()
         }
-        if self.intervalTimer.running == .paused {
+        if self.intervalTimer.timerState == .paused {
+            UIApplication.shared.isIdleTimerDisabled = false
             self.isPresented.toggle()
         }
-        if self.intervalTimer.running == .running {
-            self.intervalTimer.pause()
+        if self.intervalTimer.timerState == .running {
+            UIApplication.shared.isIdleTimerDisabled = true
+            await self.intervalTimer.pause()
         }
     }
+}
+
+
+#Preview {
+    ButtonsView(intervalTimer: IntervalTimer(), isPresented: .constant(false))
 }

@@ -19,7 +19,7 @@
 		B8860AAE24E813F10016986B /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8860AAD24E813F10016986B /* AudioToolbox.framework */; };
 		B8860AB024E81A320016986B /* Sounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8860AAF24E81A320016986B /* Sounds.swift */; };
 		B8BE117025290752006F09EF /* TimerDisplayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BE116F25290752006F09EF /* TimerDisplayTests.swift */; };
-		B8BE118925372586006F09EF /* TimerIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BE118825372585006F09EF /* TimerIndicator.swift */; };
+		B8BE118925372586006F09EF /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BE118825372585006F09EF /* TimerView.swift */; };
 		B8D65E7C24D6393E00125306 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D65E7B24D6393E00125306 /* AppDelegate.swift */; };
 		B8D65E7E24D6393E00125306 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D65E7D24D6393E00125306 /* SceneDelegate.swift */; };
 		B8D65E8024D6393E00125306 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D65E7F24D6393E00125306 /* ContentView.swift */; };
@@ -54,7 +54,7 @@
 		B8BE116D25290752006F09EF /* Simple TimerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Simple TimerTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8BE116F25290752006F09EF /* TimerDisplayTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerDisplayTests.swift; sourceTree = "<group>"; };
 		B8BE117125290752006F09EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B8BE118825372585006F09EF /* TimerIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerIndicator.swift; sourceTree = "<group>"; };
+		B8BE118825372585006F09EF /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
 		B8D65E7824D6393E00125306 /* Simple Timer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Simple Timer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8D65E7B24D6393E00125306 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B8D65E7D24D6393E00125306 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -97,7 +97,7 @@
 		B85C6E3125617E5700C79895 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				B8BE118825372585006F09EF /* TimerIndicator.swift */,
+				B8BE118825372585006F09EF /* TimerView.swift */,
 				B85C6E3225617E7C00C79895 /* SettingsView.swift */,
 				B85C6E3825617F1500C79895 /* CountDownOverlayView.swift */,
 				B816B9CD257BEFE60095ABC5 /* ButtonsView.swift */,
@@ -293,7 +293,7 @@
 				B8860AB024E81A320016986B /* Sounds.swift in Sources */,
 				B816B9CE257BEFE60095ABC5 /* ButtonsView.swift in Sources */,
 				B8D65E7E24D6393E00125306 /* SceneDelegate.swift in Sources */,
-				B8BE118925372586006F09EF /* TimerIndicator.swift in Sources */,
+				B8BE118925372586006F09EF /* TimerView.swift in Sources */,
 				B8D65E8024D6393E00125306 /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -495,7 +495,7 @@
 				DEVELOPMENT_TEAM = 79D2P98PU7;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = SimpleTimer/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -516,7 +516,7 @@
 				DEVELOPMENT_TEAM = 79D2P98PU7;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = SimpleTimer/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
