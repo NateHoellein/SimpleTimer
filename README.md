@@ -8,6 +8,6 @@ A simple interval time app that does just that.  No in app purchases to change s
 
 Dark Mode | Light Mode
 --------- | ----------
-<img src="https://github.com/NateHoellein/SimpleTimer/blob/master/Doc/darkmode.png" width="207" height="448"> | <img src="https://github.com/NateHoellein/SimpleTimer/blob/master/Doc/lightmode.png" width="207" height="448">
+<img src="Doc/darkmode.png" width="207" height="448"> | <img src="Doc/lightmode.png" width="207" height="448">
 
 
